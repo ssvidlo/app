@@ -1,2 +1,18 @@
 <p> Index Page </p>
-<%= link_to('Login', new_user_session_path)  %>  
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </br>
+  <%= link_to 'Add your content', new_content_path, class: 'btn btn-lg btn-primary' %>
+<% else %>
+  <%= link_to('Login', new_user_session_path) %>
+<% end %>
+
+<ul class="row" id="photos-list">
+  <% @content.each do |content| %>
+    <li class="col-xs-3">
+      <%= link_to image_tag(content.image.thumb('180x180#').url, alt: content.name, class: 'img-thumbnail'),
+                  content.image.url, target: '_blank' %>
+      <p><%= content.name %></p>
+    </li>
+  <% end %>
+</ul>

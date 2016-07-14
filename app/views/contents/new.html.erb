@@ -1,2 +1,14 @@
-<p> New page </p>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<%= form_for @content do |f| %>
+  <%= render 'shared/errors', object: @photo %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, required: true %>
+  </div>
+
+  <%= f.submit 'Submit', class: 'btn btn-primary btn-lg' %>
+<% end %>
