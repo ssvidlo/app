@@ -2,7 +2,7 @@ class ContentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @content = Content.all
+    @contents = Content.all.page(params[:page]).per(4)
   end
 
   def new
@@ -12,7 +12,7 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     if @content.save
-      flash[:success] = "Content saved!"
+      flash[:success] = 'Content saved!'
       redirect_to contents_path
     else
       render 'new'
@@ -21,7 +21,7 @@ class ContentsController < ApplicationController
 
   private
 
-    def content_params
-      params.require(:content).permit(:image, :name)
-    end
+  def content_params
+    params.require(:content).permit(:image, :name)
+  end
 end
