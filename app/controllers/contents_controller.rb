@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
   end
 
   def edit
+    @content = Content.find(params[:id])
   end
 
   def update
