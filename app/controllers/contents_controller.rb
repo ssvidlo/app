@@ -14,6 +14,7 @@ class ContentsController < ApplicationController
 
   def update
     @content = Content.find(params[:id])
+    @content.update_attributes(content_params)
   end
 
   def create
