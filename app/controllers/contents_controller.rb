@@ -13,6 +13,7 @@ class ContentsController < ApplicationController
   end
 
   def update
+    @content = Content.find(params[:id])
   end
 
   def create
