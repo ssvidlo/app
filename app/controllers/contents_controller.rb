@@ -13,11 +13,6 @@ class ContentsController < ApplicationController
     @content = Content.find(params[:id])
   end
 
-  def update
-    @content = Content.find(params[:id])
-    @content.update_attributes(content_params)
-  end
-
   def create
     @content = Content.new(content_params)
     if @content.save
