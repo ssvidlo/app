@@ -9,6 +9,9 @@ class ContentsController < ApplicationController
     @content = Content.new
   end
 
+  def update
+  end
+
   def create
     @content = Content.new(content_params)
     if @content.save
