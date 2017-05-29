@@ -1,6 +1,6 @@
 <p> Index Page </p>
 <% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   </br>
   <%= link_to 'Add your content', new_content_path, class: 'btn btn-lg btn-primary' %>
 <% else %>
@@ -16,5 +16,6 @@
                   content.image.url, target: '_blank' %>
       <p><%= content.name %></p>
     </li>
+    <%= link_to 'Edit content', edit_content_path(content) if user_signed_in?  %>
   <% end %>
 </ul>

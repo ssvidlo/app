@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
 
   def index
     @contents = Content.all.page(params[:page]).per(4)
@@ -16,11 +16,15 @@ class ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
     @content.update_attributes(content_params)
+
+    redirect_to contents_path
   end
 
-  def delete
+  def destroy
     @content = Content.find(params[:id])
     @content.destroy
+
+    redirect_to contents_path
   end
 
   def create
