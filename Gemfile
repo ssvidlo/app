@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'dragonfly', '~> 1.0.12'
 gem 'devise'
 gem 'kaminari'
+gem 'cancancan'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
